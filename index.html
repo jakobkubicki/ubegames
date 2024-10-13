@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ube Games</title>
 
+    <link rel="icon" href="icons/ube.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <style>
@@ -22,7 +23,23 @@
             background-color: #000;
             border-bottom: 2px solid #fff;
             padding: 15px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-title img {
+            max-width: 60px;
+            margin-top: 13px;
+            margin-right: 11px;
+            height: auto;
+            image-rendering: pixelated;
         }
 
         nav {
@@ -112,6 +129,11 @@
             nav a {
                 font-size: 12px;
             }
+
+            .logo-title {
+                flex-direction: column;
+                gap: 5px;
+            }
         }
     </style>
 </head>
@@ -119,29 +141,32 @@
 <body>
 
 <header>
-    <h1>Ube Games</h1>
-    <nav>
-        <a onclick="showTab('about')">About Us</a>
-        <a onclick="showTab('games')">Games</a>
-        <a onclick="showTab('contact')">Contact</a>
-    </nav>
+    <div class="logo-title">
+        <img src="icons/ube.png" alt="Ube Games Logo">
+        <h1>Ube Games</h1>
+    </div>
 </header>
 
+<nav>
+    <a onclick="showTab('about')">About Us</a>
+    <a onclick="showTab('games')">Games</a>
+    <a onclick="showTab('contact')">Contact</a>
+</nav>
+
 <section id="about" class="active">
-    <h2>About Us</h2>
     <p>Welcome to Ube games. A lot of cool stuff coming soon.</p>
 </section>
 
 <section id="games">
     <h2>Our Games</h2>
     <ul>
-        <li>🚀 Coming soon!</li>
+        <li>Coming soon!</li>
     </ul>
 </section>
 
 <section id="contact">
     <h2>Contact Us</h2>
-    <p>Have questions? Feel free to email us at <a href="mailto:info@ubegames.com">info@ubegames.com</a>.</p>
+    <p>Email us at <a href="mailto:info@ube.games">info@ube.games</a></p>
 </section>
 
 <footer>
