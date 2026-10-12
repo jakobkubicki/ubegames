@@ -94,9 +94,8 @@
 
         header { margin-bottom: 64px; }
 
-        /* The studio's name set like the ubeChores wordmark: chunky,
-           rounded letters, "ube" plain and the rest in the brand's
-           purple-to-gold run. */
+        /* The studio's name in chunky, rounded letters like the
+           ubeChores wordmark, in one plain colour. */
         .studio {
             font-family: 'Fredoka', 'Nunito', ui-rounded, sans-serif;
             font-weight: 700;
@@ -106,15 +105,7 @@
             margin: 0;
         }
 
-        .studio .rest {
-            background: linear-gradient(90deg, #9937F9, #DF4EBE 35%, #F75078 60%, #FC8C32 82%, #FCB41B);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
         .card {
-            position: relative;
             padding: 24px;
             background: var(--card);
             border: 1px solid var(--line);
@@ -149,16 +140,6 @@
             letter-spacing: 0.24em;
             text-transform: uppercase;
             color: var(--muted);
-        }
-
-        /* The mascot, waving from the corner of its own card. */
-        .card .mascot {
-            position: absolute;
-            right: 18px;
-            top: -46px;
-            width: 104px;
-            height: auto;
-            pointer-events: none;
         }
 
         .card p { margin: 0 0 18px; }
@@ -211,10 +192,6 @@
 
         footer a { color: var(--muted); }
 
-        @media (max-width: 480px) {
-            .card .mascot { width: 84px; top: -38px; right: 12px; }
-        }
-
         @media (max-width: 380px) {
             main { padding-top: 48px; }
             .wordmark img { height: 28px; }
@@ -225,13 +202,12 @@
 <body>
 <main>
     <header>
-        <h1 class="studio">ube <span class="rest">games</span></h1>
+        <h1 class="studio">ube games</h1>
     </header>
 
     <section aria-label="Our apps">
 
         <article class="card">
-            <img class="mascot" src="brand/mascot.svg" alt="">
             <div class="app">
                 <img class="icon" src="brand/app-icon-512.png" alt="ubeChores app icon">
                 <div>
@@ -262,7 +238,7 @@
 
 <footer>
     <span>© 2026 ube media</span>
-    <a href="mailto:info@ube.games">info@ube.games</a>
+    <a href="mailto:support@ube.games">support@ube.games</a>
 </footer>
 </body>
 </html>
