@@ -4,22 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ube games</title>
-    <meta name="description" content="Small games and apps from ube games. Now: ubeChores, chores for any shared home.">
-    <meta name="theme-color" content="#0D0B14">
-    <link rel="icon" href="icons/ube.ico" type="image/x-icon">
+    <meta name="description" content="ube games makes ubeChores: happier homes, cleaner days.">
+    <meta name="theme-color" content="#1A0B40" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#E9DDF7" media="(prefers-color-scheme: light)">
+    <meta name="color-scheme" content="dark light">
+    <link rel="icon" href="brand/mascot.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="brand/favicon-64.png" type="image/png">
+    <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+
+    <!-- What a shared link shows in Messages and elsewhere. -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ube.games/">
+    <meta property="og:title" content="ube games">
+    <meta property="og:description" content="Makers of ubeChores: happier homes, cleaner days.">
+    <meta property="og:image" content="https://www.ube.games/brand/share.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;900&family=Fraunces:ital,opsz,wght@1,9..144,400&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=Fredoka:wght@700&display=swap" rel="stylesheet">
 
+    <!-- The ubeChores look: deep indigo by default, the brand board's
+         lavender and cream when the visitor's device is in light mode.
+         chores.ube.games uses the same tokens; keep the two in step. -->
     <style>
         :root {
-            --canvas: #0D0B14;
-            --text: #F4F1FA;
-            --muted: rgba(244, 241, 250, 0.62);
-            --line: rgba(255, 255, 255, 0.12);
-            --card: rgba(255, 255, 255, 0.05);
-            --ube: #B44DFF;
-            --ube-blue: #4D5DFF;
+            --canvas: #1A0B40;
+            --text: #FFFFFF;
+            --muted: rgba(255, 255, 255, 0.78);
+            --line: rgba(255, 255, 255, 0.14);
+            --card: rgba(255, 255, 255, 0.07);
+            --card-shadow: none;
+            --glow-1: rgba(176, 88, 252, 0.40);
+            --glow-2: rgba(123, 47, 240, 0.30);
+            --ube: #B565FF;
+            --button: linear-gradient(135deg, #B058FC, #7B2FF0);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --canvas: #E9DDF7;
+                --text: #30136F;
+                --muted: rgba(48, 19, 111, 0.74);
+                --line: rgba(48, 19, 111, 0.10);
+                --card: #FFFDFB;
+                --card-shadow: 0 4px 24px rgba(48, 19, 111, 0.08);
+                --glow-1: rgba(176, 88, 252, 0.16);
+                --glow-2: rgba(123, 47, 240, 0.10);
+                --ube: #9635F4;
+            }
         }
 
         * { box-sizing: border-box; }
@@ -31,112 +66,102 @@
             color: var(--text);
             font-family: 'Nunito', ui-rounded, system-ui, sans-serif;
             font-weight: 500;
-            line-height: 1.5;
+            line-height: 1.55;
             -webkit-font-smoothing: antialiased;
             display: flex;
             flex-direction: column;
         }
 
-        /* One soft, still glow: the app's backdrop, without the motion. */
+        /* The app's backdrop: soft, still glows of ube. */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
             z-index: -1;
             background:
-                radial-gradient(520px circle at 18% 8%, rgba(180, 77, 255, 0.30), transparent 70%),
-                radial-gradient(460px circle at 92% 62%, rgba(77, 93, 255, 0.20), transparent 70%);
+                radial-gradient(560px circle at 15% 6%, var(--glow-1), transparent 70%),
+                radial-gradient(480px circle at 95% 70%, var(--glow-2), transparent 70%);
             pointer-events: none;
         }
 
         main {
             width: 100%;
-            max-width: 560px;
+            max-width: 580px;
             margin: 0 auto;
             padding: 72px 24px 48px;
             flex: 1;
         }
 
-        header { margin-bottom: 56px; }
+        header { margin-bottom: 64px; }
 
-        .mark {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin: 0 0 20px;
-        }
-
-        .mark img {
-            width: 44px;
-            height: auto;
-            image-rendering: pixelated;
-        }
-
-        .mark span {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 14px;
-            letter-spacing: 0.02em;
-        }
-
-        h1 {
-            font-weight: 900;
-            font-size: clamp(34px, 7vw, 46px);
-            line-height: 1.08;
-            letter-spacing: -0.02em;
-            text-wrap: balance;
+        /* The studio's name set like the ubeChores wordmark: chunky,
+           rounded letters, "ube" plain and the rest in the brand's
+           purple-to-gold run. */
+        .studio {
+            font-family: 'Fredoka', 'Nunito', ui-rounded, sans-serif;
+            font-weight: 700;
+            font-size: clamp(40px, 9vw, 54px);
+            line-height: 1;
+            letter-spacing: -0.01em;
             margin: 0;
         }
 
-        .tagline {
-            font-family: 'Fraunces', Georgia, serif;
-            font-style: italic;
-            font-size: 19px;
-            color: var(--muted);
-            margin: 12px 0 0;
-        }
-
-        h2 {
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin: 0 0 14px;
+        .studio .rest {
+            background: linear-gradient(90deg, #9937F9, #DF4EBE 35%, #F75078 60%, #FC8C32 82%, #FCB41B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .card {
-            display: flex;
-            gap: 18px;
-            align-items: flex-start;
-            padding: 20px;
+            position: relative;
+            padding: 24px;
             background: var(--card);
             border: 1px solid var(--line);
-            border-radius: 22px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            border-radius: 26px;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
 
-        .card img {
-            width: 64px;
-            height: 64px;
-            border-radius: 15px;
+        .app {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .app .icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 17px;
             flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(26, 11, 64, 0.25);
         }
 
-        .card h3 {
-            font-size: 21px;
-            font-weight: 900;
-            margin: 0;
-        }
+        .wordmark { margin: 0; line-height: 0; }
+        .wordmark img { height: 34px; width: auto; }
 
-        .card .what {
-            font-family: 'Fraunces', Georgia, serif;
-            font-style: italic;
+        .brand-tagline {
+            margin: 10px 0 0;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
             color: var(--muted);
-            margin: 0 0 8px;
         }
 
-        .card p { margin: 0 0 16px; }
+        /* The mascot, waving from the corner of its own card. */
+        .card .mascot {
+            position: absolute;
+            right: 18px;
+            top: -46px;
+            width: 104px;
+            height: auto;
+            pointer-events: none;
+        }
+
+        .card p { margin: 0 0 18px; }
 
         .actions {
             display: flex;
@@ -149,13 +174,13 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 9px 16px;
+            padding: 10px 18px;
             border-radius: 999px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 14px;
             color: #fff;
             text-decoration: none;
-            background: linear-gradient(135deg, var(--ube), var(--ube-blue));
+            background: var(--button);
         }
 
         /* Until the listing exists: shown, not clickable. */
@@ -168,18 +193,12 @@
 
         .links { font-size: 14px; color: var(--muted); }
 
-        a { color: var(--text); text-decoration-color: rgba(244, 241, 250, 0.35); text-underline-offset: 3px; }
-        a:hover { color: #fff; text-decoration-color: var(--ube); }
-
-        .also {
-            margin: 28px 0 0;
-            color: var(--muted);
-            font-size: 15px;
-        }
+        a { color: var(--text); text-decoration-color: var(--ube); text-underline-offset: 3px; }
+        a:hover { text-decoration-thickness: 2px; }
 
         footer {
             width: 100%;
-            max-width: 560px;
+            max-width: 580px;
             margin: 0 auto;
             padding: 24px;
             font-size: 13px;
@@ -190,13 +209,15 @@
             gap: 8px;
         }
 
+        footer a { color: var(--muted); }
+
         @media (max-width: 480px) {
-            br.wide { display: none; }
+            .card .mascot { width: 84px; top: -38px; right: 12px; }
         }
 
-        @media (max-width: 420px) {
+        @media (max-width: 380px) {
             main { padding-top: 48px; }
-            .card { flex-direction: column; }
+            .wordmark img { height: 28px; }
         }
     </style>
 </head>
@@ -204,37 +225,38 @@
 <body>
 <main>
     <header>
-        <div class="mark">
-            <img src="icons/ube.png" alt="">
-            <span>ube games</span>
-        </div>
-        <h1>Small games and apps,<br class="wide"> made with care.</h1>
-        <p class="tagline">named after a purple yam, for some reason</p>
+        <h1 class="studio">ube <span class="rest">games</span></h1>
     </header>
 
-    <section aria-labelledby="things">
-        <h2 id="things">Things we make</h2>
+    <section aria-label="Our apps">
 
         <article class="card">
-            <img src="icons/ubechores.png" alt="ubeChores app icon">
-            <div>
-                <h3>ubeChores</h3>
-                <p class="what">chores for any shared home</p>
-                <p>Chores rotate on their own, the house feed shows who did what, and a nudge
-                    beats a nag. No points, no leaderboard, just a fair split.</p>
-                <div class="actions">
-                    <!-- Swap in the App Store URL and drop aria-disabled once it's live. -->
-                    <a class="store" href="#" aria-disabled="true" role="link" tabindex="-1">Coming soon to the App Store</a>
-                    <span class="links">
-                        <a href="https://chores.ube.games/support">Support</a> ·
-                        <a href="https://chores.ube.games/">Privacy</a> ·
-                        <a href="https://chores.ube.games/terms">Terms</a>
-                    </span>
+            <img class="mascot" src="brand/mascot.svg" alt="">
+            <div class="app">
+                <img class="icon" src="brand/app-icon-512.png" alt="ubeChores app icon">
+                <div>
+                    <h3 class="wordmark">
+                        <picture>
+                            <source srcset="brand/wordmark-on-light.svg" media="(prefers-color-scheme: light)">
+                            <img src="brand/wordmark-on-dark.svg" alt="ubeChores">
+                        </picture>
+                    </h3>
+                    <p class="brand-tagline">Happier homes, cleaner days.</p>
                 </div>
             </div>
+            <p>Chores rotate on their own, the house feed shows who did what, and a nudge
+                beats a nag. Going away? Your turn passes to the next person and comes back to you.
+                No points, no leaderboard, just a fair split.</p>
+            <div class="actions">
+                <!-- Swap in the App Store URL and drop aria-disabled once it's live. -->
+                <a class="store" href="#" aria-disabled="true" role="link" tabindex="-1">Coming soon to the App Store</a>
+                <span class="links">
+                    <a href="https://chores.ube.games/support">Support</a> ·
+                    <a href="https://chores.ube.games/">Privacy</a> ·
+                    <a href="https://chores.ube.games/terms">Terms</a>
+                </span>
+            </div>
         </article>
-
-        <p class="also">Games: still in the works.</p>
     </section>
 </main>
 
