@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ube games</title>
-    <meta name="description" content="Small games and apps from ube games. Now: ubeChores, happier homes and cleaner days for any shared home.">
+    <meta name="description" content="ube games makes ubeChores: happier homes, cleaner days.">
     <meta name="theme-color" content="#1A0B40" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#E9DDF7" media="(prefers-color-scheme: light)">
     <meta name="color-scheme" content="dark light">
-    <link rel="icon" href="icons/ube.ico" type="image/x-icon">
+    <link rel="icon" href="brand/mascot.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="brand/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 
     <!-- What a shared link shows in Messages and elsewhere. -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.ube.games/">
     <meta property="og:title" content="ube games">
-    <meta property="og:description" content="Small games and apps, made with care. Now: ubeChores.">
+    <meta property="og:description" content="Makers of ubeChores: happier homes, cleaner days.">
     <meta property="og:image" content="https://www.ube.games/brand/share.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -23,7 +24,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&family=Fredoka:wght@700&display=swap" rel="stylesheet">
 
     <!-- The ubeChores look: deep indigo by default, the brand board's
          lavender and cream when the visitor's device is in light mode.
@@ -91,47 +92,25 @@
             flex: 1;
         }
 
-        header { margin-bottom: 52px; }
+        header { margin-bottom: 64px; }
 
-        /* The studio's own mark: the pixel ube, as before. */
-        .mark {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin: 0 0 22px;
-        }
-
-        .mark img { width: 44px; height: auto; image-rendering: pixelated; }
-
-        .mark span {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 14px;
-            letter-spacing: 0.02em;
-        }
-
-        h1 {
-            font-weight: 900;
-            font-size: clamp(34px, 7vw, 46px);
-            line-height: 1.08;
-            letter-spacing: -0.02em;
-            text-wrap: balance;
+        /* The studio's name set like the ubeChores wordmark: chunky,
+           rounded letters, "ube" plain and the rest in the brand's
+           purple-to-gold run. */
+        .studio {
+            font-family: 'Fredoka', 'Nunito', ui-rounded, sans-serif;
+            font-weight: 700;
+            font-size: clamp(40px, 9vw, 54px);
+            line-height: 1;
+            letter-spacing: -0.01em;
             margin: 0;
         }
 
-        .tagline {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--muted);
-            margin: 12px 0 0;
-        }
-
-        h2 {
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin: 0 0 14px;
+        .studio .rest {
+            background: linear-gradient(90deg, #9937F9, #DF4EBE 35%, #F75078 60%, #FC8C32 82%, #FCB41B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .card {
@@ -217,12 +196,6 @@
         a { color: var(--text); text-decoration-color: var(--ube); text-underline-offset: 3px; }
         a:hover { text-decoration-thickness: 2px; }
 
-        .also {
-            margin: 28px 0 0;
-            color: var(--muted);
-            font-size: 15px;
-        }
-
         footer {
             width: 100%;
             max-width: 580px;
@@ -239,7 +212,6 @@
         footer a { color: var(--muted); }
 
         @media (max-width: 480px) {
-            br.wide { display: none; }
             .card .mascot { width: 84px; top: -38px; right: 12px; }
         }
 
@@ -253,16 +225,10 @@
 <body>
 <main>
     <header>
-        <div class="mark">
-            <img src="icons/ube.png" alt="">
-            <span>ube games</span>
-        </div>
-        <h1>Small games and apps,<br class="wide"> made with care.</h1>
-        <p class="tagline">Named after a purple yam, for some reason.</p>
+        <h1 class="studio">ube <span class="rest">games</span></h1>
     </header>
 
-    <section aria-labelledby="things">
-        <h2 id="things">Things we make</h2>
+    <section aria-label="Our apps">
 
         <article class="card">
             <img class="mascot" src="brand/mascot.svg" alt="">
@@ -291,8 +257,6 @@
                 </span>
             </div>
         </article>
-
-        <p class="also">Games: still in the works.</p>
     </section>
 </main>
 
