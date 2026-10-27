@@ -8,6 +8,8 @@
     <meta name="theme-color" content="#1A0B40" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#E9DDF7" media="(prefers-color-scheme: light)">
     <meta name="color-scheme" content="dark light">
+    <!-- Safari's banner for ubeChores. -->
+    <meta name="apple-itunes-app" content="app-id=6817928250">
     <link rel="icon" href="brand/mascot.svg" type="image/svg+xml">
     <link rel="alternate icon" href="brand/favicon-64.png" type="image/png">
     <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
@@ -164,14 +166,6 @@
             background: var(--button);
         }
 
-        /* Until the listing exists: shown, not clickable. */
-        .store[aria-disabled="true"] {
-            background: transparent;
-            border: 1px solid var(--line);
-            color: var(--muted);
-            cursor: default;
-        }
-
         .links { font-size: 14px; color: var(--muted); }
 
         a { color: var(--text); text-decoration-color: var(--ube); text-underline-offset: 3px; }
@@ -224,8 +218,7 @@
                 beats a nag. Going away? Your turn passes to the next person and comes back to you.
                 No points, no leaderboard, just a fair split.</p>
             <div class="actions">
-                <!-- Swap in the App Store URL and drop aria-disabled once it's live. -->
-                <a class="store" href="#" aria-disabled="true" role="link" tabindex="-1">Coming soon to the App Store</a>
+                <a class="store" href="https://apps.apple.com/app/id6817928250">Get it on the App Store</a>
                 <span class="links">
                     <a href="https://chores.ube.games/support">Support</a> ·
                     <a href="https://chores.ube.games/">Privacy</a> ·
